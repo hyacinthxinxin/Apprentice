@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Checklist/Checklist.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Bull&apos;s Eye/Bull&apos;s Eye.xcodeproj">
+   </FileRef>
+</Workspace>
