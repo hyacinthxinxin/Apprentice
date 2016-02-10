@@ -13,6 +13,9 @@
 		204FD9351C61BA2B0030DC0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 204FD9331C61BA2B0030DC0A /* Main.storyboard */; };
 		204FD9371C61BA2B0030DC0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 204FD9361C61BA2B0030DC0A /* Assets.xcassets */; };
 		204FD93A1C61BA2B0030DC0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 204FD9381C61BA2B0030DC0A /* LaunchScreen.storyboard */; };
+		204FD96B1C6B7ED70030DC0A /* Bull'sEyeAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204FD9691C6B7ED70030DC0A /* Bull'sEyeAboutViewController.swift */; };
+		204FD96C1C6B7ED70030DC0A /* Bull'sEyeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204FD96A1C6B7ED70030DC0A /* Bull'sEyeViewController.swift */; };
+		204FD96E1C6B93E30030DC0A /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = 204FD96D1C6B93E30030DC0A /* BullsEye.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		204FD9361C61BA2B0030DC0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		204FD9391C61BA2B0030DC0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		204FD93B1C61BA2B0030DC0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		204FD9691C6B7ED70030DC0A /* Bull'sEyeAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bull'sEyeAboutViewController.swift"; path = "Bull's Eye/Bull'sEyeAboutViewController.swift"; sourceTree = "<group>"; };
+		204FD96A1C6B7ED70030DC0A /* Bull'sEyeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bull'sEyeViewController.swift"; path = "Bull's Eye/Bull'sEyeViewController.swift"; sourceTree = "<group>"; };
+		204FD96D1C6B93E30030DC0A /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +62,9 @@
 		204FD92C1C61BA2B0030DC0A /* Apprentice */ = {
 			isa = PBXGroup;
 			children = (
-				204FD9441C61BA3F0030DC0A /* New Group3 */,
-				204FD9431C61BA3D0030DC0A /* New Group2 */,
-				204FD9421C61BA3A0030DC0A /* New Group1 */,
+				204FD9441C61BA3F0030DC0A /* StoreSearch */,
+				204FD9431C61BA3D0030DC0A /* MyLocations */,
+				204FD9421C61BA3A0030DC0A /* Checklists */,
 				204FD9411C61BA370030DC0A /* Bull's Eye */,
 				204FD92D1C61BA2B0030DC0A /* AppDelegate.swift */,
 				204FD92F1C61BA2B0030DC0A /* FirstViewController.swift */,
@@ -74,29 +80,32 @@
 		204FD9411C61BA370030DC0A /* Bull's Eye */ = {
 			isa = PBXGroup;
 			children = (
+				204FD96D1C6B93E30030DC0A /* BullsEye.html */,
+				204FD9691C6B7ED70030DC0A /* Bull'sEyeAboutViewController.swift */,
+				204FD96A1C6B7ED70030DC0A /* Bull'sEyeViewController.swift */,
 			);
 			name = "Bull's Eye";
 			sourceTree = "<group>";
 		};
-		204FD9421C61BA3A0030DC0A /* New Group1 */ = {
+		204FD9421C61BA3A0030DC0A /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "New Group1";
+			name = Checklists;
 			sourceTree = "<group>";
 		};
-		204FD9431C61BA3D0030DC0A /* New Group2 */ = {
+		204FD9431C61BA3D0030DC0A /* MyLocations */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "New Group2";
+			name = MyLocations;
 			sourceTree = "<group>";
 		};
-		204FD9441C61BA3F0030DC0A /* New Group3 */ = {
+		204FD9441C61BA3F0030DC0A /* StoreSearch */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "New Group3";
+			name = StoreSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				204FD93A1C61BA2B0030DC0A /* LaunchScreen.storyboard in Resources */,
+				204FD96E1C6B93E30030DC0A /* BullsEye.html in Resources */,
 				204FD9371C61BA2B0030DC0A /* Assets.xcassets in Resources */,
 				204FD9351C61BA2B0030DC0A /* Main.storyboard in Resources */,
 			);
@@ -172,7 +182,9 @@
 			files = (
 				204FD9321C61BA2B0030DC0A /* SecondViewController.swift in Sources */,
 				204FD92E1C61BA2B0030DC0A /* AppDelegate.swift in Sources */,
+				204FD96B1C6B7ED70030DC0A /* Bull'sEyeAboutViewController.swift in Sources */,
 				204FD9301C61BA2B0030DC0A /* FirstViewController.swift in Sources */,
+				204FD96C1C6B7ED70030DC0A /* Bull'sEyeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +334,7 @@
 				204FD9401C61BA2B0030DC0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
