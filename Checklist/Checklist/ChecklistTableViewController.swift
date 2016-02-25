@@ -41,11 +41,6 @@ class ChecklistTableViewController: UITableViewController {
         row4item.checked = true
         items.append(row4item)
         
-        let row5item = ChecklistItem()
-        row5item.text = "This is a new list item"
-        row5item.checked = true
-        items.append(row5item)
-        
         super.init(coder: aDecoder)
     }
     
