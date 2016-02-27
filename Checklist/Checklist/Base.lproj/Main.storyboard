@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Iqg-G9-bhM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Iqg-G9-bhM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -15,26 +15,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="Checklistitem" id="uua-La-lJG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Checklistitem" id="uua-La-lJG">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uua-La-lJG" id="9Qu-uj-5mN">
-                                    <rect key="frame" x="0.0" y="0.0" width="561" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="533" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcJ-th-z5a">
+                                            <rect key="frame" x="8" y="8" width="12.5" height="26.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azp-MD-40w">
-                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                            <rect key="frame" x="34" y="11" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="leadingMargin" secondItem="azp-MD-40w" secondAttribute="leading" id="Qbu-Ru-BlX"/>
-                                        <constraint firstItem="azp-MD-40w" firstAttribute="centerY" secondItem="9Qu-uj-5mN" secondAttribute="centerY" id="ype-dj-f7J"/>
+                                        <constraint firstItem="azp-MD-40w" firstAttribute="centerY" secondItem="DcJ-th-z5a" secondAttribute="centerY" id="BJn-0G-ED2"/>
+                                        <constraint firstItem="azp-MD-40w" firstAttribute="leading" secondItem="9Qu-uj-5mN" secondAttribute="leadingMargin" constant="26" id="bdW-VR-qp2"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="DcJ-th-z5a" secondAttribute="leading" id="ceP-xc-znH"/>
+                                        <constraint firstItem="DcJ-th-z5a" firstAttribute="centerY" secondItem="9Qu-uj-5mN" secondAttribute="centerY" id="f46-Kb-bPb"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.93333333330000001" green="0.32156862749999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="wUa-7E-1vm" kind="presentation" identifier="EditItem" trigger="accessoryAction" id="cT9-xo-Wm6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -45,7 +56,7 @@
                     <navigationItem key="navigationItem" title="Checklists" id="Fh7-pL-gf7">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tPO-xn-dmj">
                             <connections>
-                                <segue destination="wUa-7E-1vm" kind="presentation" id="K6r-Ft-3lg"/>
+                                <segue destination="wUa-7E-1vm" kind="presentation" identifier="AddItem" id="K6r-Ft-3lg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -72,10 +83,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Have a snack..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="as1-e2-coT">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the Item" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="as1-e2-coT">
                                                     <rect key="frame" x="8" y="13.5" width="584" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done:" destination="XPC-5N-FDV" eventType="editingDidEndOnExit" id="aSA-Q7-Bdb"/>
+                                                        <outlet property="delegate" destination="XPC-5N-FDV" id="eTt-NV-8GA"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -106,12 +121,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBarButton" destination="XQC-HI-NoX" id="ZH3-Qp-tn9"/>
                         <outlet property="textField" destination="as1-e2-coT" id="jtU-7d-tNo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXs-sE-ovb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4484" y="480"/>
+            <point key="canvasLocation" x="3524" y="80"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8A8-kB-I2L">
@@ -147,7 +163,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vew-74-aDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3672" y="480"/>
+            <point key="canvasLocation" x="2712" y="80"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cT9-xo-Wm6"/>
+    </inferredMetricsTieBreakers>
 </document>
