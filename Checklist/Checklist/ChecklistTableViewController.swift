@@ -161,28 +161,44 @@ class ChecklistTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "AddItem" {
             let navigationController = segue.destinationViewController as! UINavigationController
-            let controller = navigationController.topViewController as! AddItemTableViewController
+            let controller = navigationController.topViewController as! ItemDetailViewController
             controller.delegate = self
+        } else if segue.identifier == "EditItem" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let controller = navigationController.topViewController as! ItemDetailViewController
+            controller.delegate = self
+            if let indexPath = tableView.indexPathForCell(sender as! UITableViewCell) {
+                controller.itemToEdit = items[indexPath.row]
+            }
         }
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
-
+    
     
 }
 
-extension ChecklistTableViewController: AddItemTableViewControllerDelegate {
-    func addItemTableViewControllerDidCancel(controller: AddItemTableViewController) {
+extension ChecklistTableViewController: ItemDetailViewControllerDelegate {
+    func itemDetailViewControllerDidCancel(controller: ItemDetailViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func addItemTableViewController(controller: AddItemTableViewController, didFinishAddingItem item: ChecklistItem) {
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem item: ChecklistItem) {
         let newRowIndex = items.count
         items.append(item)
         let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
         let indexPaths = [indexPath]
         tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
-        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func addItemViewController(controller: ItemDetailViewController, didFinishEditingItem item: ChecklistItem) {
+        if let index = items.indexOf(item) {
+            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+            if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+                configureTextForCell(cell, withChecklistItem: item)
+            }
+        }
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

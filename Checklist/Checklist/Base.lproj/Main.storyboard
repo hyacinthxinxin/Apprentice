@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="1894" y="68"/>
         </scene>
-        <!--Add Item Table View Controller-->
+        <!--Item Detail View Controller-->
         <scene sceneID="F7G-a9-u6a">
             <objects>
-                <tableViewController id="XPC-5N-FDV" customClass="AddItemTableViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="XPC-5N-FDV" customClass="ItemDetailViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="q1K-d7-oqP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +114,7 @@
                                 <action selector="cancel:" destination="XPC-5N-FDV" id="S4j-a8-Mu9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="XQC-HI-NoX">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="XQC-HI-NoX">
                             <connections>
                                 <action selector="done:" destination="XPC-5N-FDV" id="RM8-KB-niW"/>
                             </connections>
