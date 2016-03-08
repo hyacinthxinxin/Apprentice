@@ -1,5 +1,5 @@
 //
-//  ChecklistTableViewController.swift
+//  ChecklistViewController.swift
 //  Checklist
 //
 //  Created by fanxin on 16/2/11.
@@ -8,50 +8,37 @@
 
 import UIKit
 
-class ChecklistTableViewController: UITableViewController {
+class ChecklistViewController: UITableViewController {
     
     var items: [ChecklistItem]
-    
+    var checklist: Checklist!
+
     required init?(coder aDecoder: NSCoder) {
         
         items = [ChecklistItem]()
         
-        let row0item = ChecklistItem()
-        row0item.text = "Walk the dog"
-        row0item.checked = false
-        items.append(row0item)
-        
-        let row1item = ChecklistItem()
-        row1item.text = "Brush my teeth"
-        row1item.checked = true
-        items.append(row1item)
-        
-        let row2item = ChecklistItem()
-        row2item.text = "Learn iOS development"
-        row2item.checked = true
-        items.append(row2item)
-        
-        let row3item = ChecklistItem()
-        row3item.text = "Soccer practice"
-        row3item.checked = false
-        items.append(row3item)
-        
-        let row4item = ChecklistItem()
-        row4item.text = "Eat ice cream"
-        row4item.checked = true
-        items.append(row4item)
-        
         super.init(coder: aDecoder)
+        
+        loadChecklistItems()
+    }
+    
+    func loadChecklistItems() {
+        // 1
+        let path = dataFilePath()
+        // 2
+        if NSFileManager.defaultManager().fileExistsAtPath(path) {
+            // 3
+            if let data = NSData(contentsOfFile: path) {
+                let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
+                items = unarchiver.decodeObjectForKey("ChecklistItems") as! [ChecklistItem]
+                unarchiver.finishDecoding()
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        title = checklist.name
     }
     
     override func didReceiveMemoryWarning() {
@@ -115,6 +102,7 @@ class ChecklistTableViewController: UITableViewController {
             configureCheckmarkForCell(cell, withChecklistItem: item)
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        saveChecklistItems()
     }
     
     /*
@@ -136,6 +124,7 @@ class ChecklistTableViewController: UITableViewController {
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+        saveChecklistItems()
     }
     
     
@@ -171,14 +160,27 @@ class ChecklistTableViewController: UITableViewController {
                 controller.itemToEdit = items[indexPath.row]
             }
         }
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     
+    func documentsDirectory() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        return paths[0]
+    }
     
+    func dataFilePath() -> String {
+        return "\(documentsDirectory())/Checklists.plist"
+    }
+    
+    func saveChecklistItems() {
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        archiver.encodeObject(items, forKey: "ChecklistItems")
+        archiver.finishEncoding()
+        data.writeToFile(dataFilePath(), atomically: true)
+    }
 }
 
-extension ChecklistTableViewController: ItemDetailViewControllerDelegate {
+extension ChecklistViewController: ItemDetailViewControllerDelegate {
     func itemDetailViewControllerDidCancel(controller: ItemDetailViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -190,6 +192,7 @@ extension ChecklistTableViewController: ItemDetailViewControllerDelegate {
         let indexPaths = [indexPath]
         tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
         dismissViewControllerAnimated(true, completion: nil)
+        saveChecklistItems()
     }
     
     func addItemViewController(controller: ItemDetailViewController, didFinishEditingItem item: ChecklistItem) {
@@ -200,5 +203,6 @@ extension ChecklistTableViewController: ItemDetailViewControllerDelegate {
             }
         }
         dismissViewControllerAnimated(true, completion: nil)
+        saveChecklistItems()
     }
 }

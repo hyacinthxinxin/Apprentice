@@ -73,18 +73,9 @@
       "scale" : "2x"
     },
     {
-      "size" : "29x29",
-      "idiom" : "watch",
-      "filename" : "Icon-58.png",
-      "role" : "companionSettings",
-      "scale" : "2x"
-    },
-    {
-      "size" : "29x29",
-      "idiom" : "watch",
-      "filename" : "Icon-87.png",
-      "role" : "companionSettings",
-      "scale" : "3x"
+      "idiom" : "mac",
+      "size" : "512x512",
+      "scale" : "1x"
     },
     {
       "size" : "512x512",
