@@ -22,10 +22,8 @@ class Bull_sEyeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         startNewGame()
         updateLabels()
-        
         setupSlider()
     }
     
@@ -91,7 +89,6 @@ class Bull_sEyeViewController: UIViewController {
         }
         
         score += points
-        //        let message = "The value of the slider is now: \(currentValue)" + "\nThe target value is: \(targetValue)" + "\nThe difference is: \(difference)"
         let message = "You scored \(points) points"
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: { action in
