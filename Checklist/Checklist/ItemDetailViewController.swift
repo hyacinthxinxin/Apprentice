@@ -20,7 +20,6 @@ class ItemDetailViewController: UITableViewController {
     
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
-    
     var itemToEdit: ChecklistItem?
     
     override func viewDidLoad() {

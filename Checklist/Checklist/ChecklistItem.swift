@@ -16,9 +16,8 @@ class ChecklistItem: NSObject, NSCoding {
         checked = !checked
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(text, forKey: "Text")
-        aCoder.encodeBool(checked, forKey: "Checked")
+    override init() {
+        super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,7 +26,8 @@ class ChecklistItem: NSObject, NSCoding {
         super.init()
     }
     
-    override init() {
-        super.init()
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(text, forKey: "Text")
+        aCoder.encodeBool(checked, forKey: "Checked")
     }
 }
