@@ -34,8 +34,7 @@ class ChecklistViewController: UITableViewController {
     private func configureTextForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
         if let label = cell.viewWithTag(1000) as? UILabel {
             label.textColor = view.tintColor
-            print(view.tintColor)
-            label.text = item.text
+            label.text = "\(item.itemID): \(item.text)"
         }
     }
     

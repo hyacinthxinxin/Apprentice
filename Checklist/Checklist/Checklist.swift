@@ -36,6 +36,12 @@ class Checklist: NSObject {
         aCoder.encodeObject(items, forKey: "Items")
     }
     
+    func sortChecklistItem() {
+        items.sortInPlace({item1, item2 in return
+            item1.dueDate.compare(item2.dueDate) == .OrderedAscending
+        })
+    }
+    
     func countUncheckedItems() -> Int {
         /*
         var count = 0
