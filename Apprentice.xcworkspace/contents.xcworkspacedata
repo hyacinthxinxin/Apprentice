@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:StoreSearch/StoreSearch.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MyLocations/MyLocations.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Checklist/Checklist.xcodeproj">
    </FileRef>
    <FileRef
